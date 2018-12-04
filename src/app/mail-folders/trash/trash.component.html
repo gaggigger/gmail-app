@@ -1,0 +1,12 @@
+<div class="mail-items trash">
+  <div id="trash-message">
+    <p>Messages that have been in Trash more than 30 days will be automatically deleted.</p>
+    <a *ngIf="trashMails.length > 0" (click)="onEmptyTrash()">Empty Trash now</a>
+    <p *ngIf="trashMails.length == 0">No conversations in Trash.</p>
+  </div>
+
+  <div class="list" *ngFor="let mail of trashMails; let i = index" appHighlight>
+    <a [routerLink]="[i]"><span class="sender">{{ mail.sender }}</span> <span class="subject">{{ mail.subject }}</span>
+      <span class="message">{{ mail.message }}</span> <span class="date">{{ mail.time }}</span></a>
+  </div>
+</div>
